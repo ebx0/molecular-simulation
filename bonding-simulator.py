@@ -10,7 +10,7 @@ for j in range(2):
     center = int(plotsize/2)
     size = 0.8
     
-    distuscale = 10**2
+    distuscale = 5*10**2
     distu = [0] * plotsize
     
     for i in range(int(plotsize/2)):
