@@ -55,9 +55,11 @@ def monoasim(plotsize, center, size, distu, scale):
     return(data, average, field)
 
 # Make signals to color
-image = np.multiply((monoasim(plotsize, center, size, distu, scale))[0],128)
-image2 = (monoasim(plotsize, center, size, distu, scale))[1]
-field = (monoasim(plotsize, center, size, distu, scale))[2]
+returnvalue = (monoasim(plotsize, center, size, distu, scale))
+
+image = np.multiply(returnvalue[0],128)
+image2 = (returnvalue)[1]
+field = (returnvalue)[2]
 
 #enlarge the scaled plots to normal plot size
 image2 = resize(image2, plotsize, scale)

@@ -15,7 +15,7 @@ final = 1
 scale = 8 # resolution of heatmap of electrons
 
 for j in range(2):
-    plotsize = 1024
+    plotsize = 512
     center = int(plotsize/2)
     size = 0.8
     distuscale = 5*10**2
