@@ -1,6 +1,7 @@
 import numpy as np
 
-def electronheatmap(data, plotsize, scale):
+def electronheatmap(data, plotsize):
+    scale = 8
     miniplotsize = int(plotsize/scale)
     average = np.zeros((miniplotsize, miniplotsize, 1), dtype=np.uint8)
     for x in range(miniplotsize):

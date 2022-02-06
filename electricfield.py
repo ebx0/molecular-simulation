@@ -1,15 +1,15 @@
 import numpy as np
 from math import dist
 
-def electricfield(data, plotsize, scale):
-    plotsize = int(plotsize/8)
+def electricfield(data, plotsize):
+    scale = 8
+    plotsize = int(plotsize/scale)
     mgplot = np.zeros((plotsize, plotsize, 1), dtype=np.uint8) # Create a new plot to fill, magnitude
     mgdist = [0] * plotsize
-    ke = 0.2 # coefficient of electron
-    kp = ke*3000 # coefficient of proton
+    ke = 0.05 # coefficient of electron
+    kp = ke*2000 # coefficient of proton
     
-    center = int((plotsize+2)/2)
-   
+    center = int((plotsize+1)/2)+1
     
     for i in range(center): # Take a element in slice
         tempmg = 0 # will be used to store temp magnitude value
@@ -27,9 +27,8 @@ def electricfield(data, plotsize, scale):
         
     for x in range(len(mgplot)):
         for y in range(len(mgplot)):
-            radius = int((center - dist([x, y], [center, center]))-1)
-            mgplot[x,y] = (mgdist[radius]) # Electric field
-            
+            radius = int((dist([x+1, y+1], [center, center])))
+            mgplot[x,y] = (mgdist[center-radius]) # Electric field
     return mgplot
             
     

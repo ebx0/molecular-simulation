@@ -1,6 +1,7 @@
 import numpy as np
 
-def resize(image, plotsize, scale):
+def resize(image, plotsize):
+    scale = int(plotsize/len(image))
     imagetemp = image
     image = np.zeros((plotsize, plotsize, 1), dtype=np.uint8)
     for x in range(int(plotsize/scale)):
