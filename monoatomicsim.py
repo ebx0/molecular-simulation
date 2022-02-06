@@ -41,13 +41,16 @@ def monoasim(plotsize, distu):
 # Make signals to color
 returnvalue = (monoasim(plotsize, distu))
 
-image = np.multiply(returnvalue[0],128)
-image2 = (returnvalue)[1]
-field = (returnvalue)[2]
+image = np.multiply(returnvalue[0],128) # exact locations of electrons
+image2 = (returnvalue)[1] # average electron map
+
+fieldmg = (returnvalue)[2][0] # magnitude of electric field
+fielddr = (returnvalue)[2][1] # direction of electric field
 
 # Enlarge the scaled plots to normal plot size
 image2 = resize(image2, plotsize)
-field = resize(field, plotsize)
+fieldmg = resize(fieldmg, plotsize)
+fielddr = resize(fielddr, plotsize)
 
 # Show them
 #Image.fromarray(np.concatenate((image,image,image), axis=2)).show()
