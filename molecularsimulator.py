@@ -21,7 +21,7 @@ for i in range(10):
 #atoms.append(atom([1,1],[20,20],phase))
 #atoms.append(atom([700,700],[-20,-20],phase))
 
-steps = 10
+steps = 240
 
 for i in range(steps):
     
@@ -66,6 +66,9 @@ for i in range(steps):
         try:
             atomv.step(1, [int(bg[2][0][x,y]*10), int(bg[2][1][x,y]*10)])
         except:
-            None
+            if int(atomv.position[0]/8) > area - scaledsize:
+                atomv.flip([True,False])
+            if int(atomv.position[1]/8) > area - scaledsize:
+                atomv.flip([False,True])
     Image.fromarray(bg[1]).save(f"../images/{i+1}.png")
     print(f"Processing ({i+1}/{steps})")
