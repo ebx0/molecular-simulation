@@ -44,17 +44,17 @@ returnvalue = (monoasim(plotsize, distu))
 image = np.multiply(returnvalue[0],128) # exact locations of electrons
 image2 = (returnvalue)[1] # average electron map
 
-fieldmg = (returnvalue)[2][0] # magnitude of electric field
-fielddr = (returnvalue)[2][1] # direction of electric field
+fieldx = (returnvalue)[2][0] # hortizonal electric field, 127 = zero field
+fieldy = (returnvalue)[2][1] # vertical of electric field, 127 = zero field
 
 # Enlarge the scaled plots to normal plot size
 image2 = resize(image2, plotsize)
-fieldmg = resize(fieldmg, plotsize)
-fielddr = resize(fielddr, plotsize)
+fieldx = resize(fieldx, plotsize)
+fieldy = resize(fieldy, plotsize)
 
 # Show them
 #Image.fromarray(np.concatenate((image,image,image), axis=2)).show()
 #Image.fromarray(np.concatenate((image2,image2,image2), axis=2)).show()
-#Image.fromarray(np.concatenate((field,field,field), axis=2)).show()
+#Image.fromarray(np.concatenate((fieldx,fieldx,fieldx), axis=2)).show()
 
 

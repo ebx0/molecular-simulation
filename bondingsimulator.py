@@ -14,7 +14,7 @@ final = 2 # final phase of atom
 scale = 8 # resolution of heatmap of electrons
 plotsize = 512 # size of requested plot
     
-steps = 5
+steps = 20
 distusteps = []
 
 for step in range(steps+1):
@@ -31,16 +31,16 @@ for i in range(steps):
 for i in range(len(graph)):
     image = (graph[i])[0]
     image2 = (graph[i])[1] # Heatmap
-    fieldmg = (graph[i])[2][0] # Electric Field magnitude
-    fielddr = (graph[i])[2][1] # Electric Field direction
+    fieldx = (graph[i])[2][0] # Electric Field magnitude
+    fieldy = (graph[i])[2][1] # Electric Field direction
     
     image = np.multiply(image,128) # color with 128
     
     image2 = resize(image2, plotsize)
-    fieldmg = resize(fieldmg, plotsize)
-    fielddr = resize(fielddr, plotsize)
+    fieldx = resize(fieldy, plotsize)
+    fieldy = resize(fieldy, plotsize)
             
-    concat = np.concatenate((image,image2,fieldmg,fielddr), axis=1)
+    concat = np.concatenate((image,image2,fieldx,fieldy), axis=1)
             
     Image.fromarray(np.concatenate((concat,concat,concat), axis=2)).save(f"../images/{i+1}.png")
     print(f"Processing (2/2) ({i+1}/{len(distusteps)-1})")
