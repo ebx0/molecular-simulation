@@ -1,5 +1,4 @@
 import numpy as np
-#from PIL import Image
 from math import dist
 import random
 
@@ -53,6 +52,7 @@ fieldx = resize(fieldx, plotsize)
 fieldy = resize(fieldy, plotsize)
 
 # Show them
+#from PIL import Image
 #Image.fromarray(np.concatenate((image,image,image), axis=2)).show()
 #Image.fromarray(np.concatenate((image2,image2,image2), axis=2)).show()
 #Image.fromarray(np.concatenate((fieldx,fieldx,fieldx), axis=2)).show()
